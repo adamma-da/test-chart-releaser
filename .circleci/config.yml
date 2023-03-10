@@ -19,7 +19,7 @@ commands:
   deploy:
     steps:
       - run:
-          command: cat ./scripts/chart_publish.sh 
+          command: ./scripts/chart_publish.sh 
           #$APIKey
           name: Run the release script
 
