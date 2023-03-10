@@ -1,5 +1,5 @@
 #!/bin/bash
-#set -x
+set -x
 
 # Set up script variables
 CHARTS_DIR=./charts/

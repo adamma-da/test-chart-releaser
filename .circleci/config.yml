@@ -18,8 +18,8 @@ commands:
   deploy:
     steps:
       - run:
-          command: ls -laht scripts
-          #command: scripts/chart_publish.sh $APIKey
+          command: scripts/chart_publish.sh 
+          #$APIKey
           name: Run the release script
 
 jobs:
