@@ -1,26 +1,35 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/2.0/configuration-reference
+---
 version: 2.1
 
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
-jobs:
-  say-hello:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+executors:
+  chart-releaser:
     docker:
-      - image: cimg/base:stable
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+      - image: quay.io/helmpack/chart-releaser:v1.5.0
+    environment:
+      LC_ALL: "C.UTF-8"
+    resource_class: medium
+
+commands:
+  build:
+    steps:
+      - run:
+          command: apk add argocd
+          name: Install JavaScript dependencies for Pulumi
+  deploy:
+    steps:
+      - run:
+          command: ./charts/thescript.sh
+          name: Create Pulumi stack and deploy resources
+
+jobs:
+  release-chart:
+    executor: chart-releaser
     steps:
       - checkout
-      - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+      - build
+      - deploy
 
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  say-hello-workflow:
+  releaser:
     jobs:
-      - say-hello
+      - release-chart
