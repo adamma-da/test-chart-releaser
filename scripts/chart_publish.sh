@@ -10,7 +10,7 @@ GITREPO_OWNER=adamma-da
 
 PUBLISH_BRANCH=publish
 PUBLISH_FOLDER="publish"
-PAGES_BRANCH=main
+PAGES_BRANCH=publish
 
 
 mkdir $PUBLISH_FOLDER
