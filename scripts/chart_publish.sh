@@ -36,6 +36,6 @@ for chart in $CHARTS_DIR/*; do
     fi
 done
 
-cp publish/index.yaml docs/index.yaml
+mv publish/index.yaml docs/index.yaml
 #cr index --pages-branch $PAGES_BRANCH -b https://api.github.com/ -u https://uploads.github.com -i docs/index.yaml -r $GITREPO_NAME  -p $PUBLISH_FOLDER --owner $GITREPO_OWNER --token $1
 rm -rf $PUBLISH_FOLDER
