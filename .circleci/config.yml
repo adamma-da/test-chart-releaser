@@ -4,7 +4,8 @@ version: 2.1
 executors:
   chart-releaser:
     docker:
-      - image: quay.io/helmpack/chart-releaser:v1.2.0
+       - image: quay.io/helmpack/chart-releaser:v1.1.0
+      #- image: quay.io/helmpack/chart-releaser:v1.2.0
     environment:
       LC_ALL: "C.UTF-8"
     resource_class: medium
