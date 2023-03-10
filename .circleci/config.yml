@@ -13,7 +13,7 @@ commands:
   build:
     steps:
       - run:
-          command: apk add yq helm
+          command: apk update; apk add yq helm
           name: Install JavaScript dependencies for Pulumi
   deploy:
     steps:
