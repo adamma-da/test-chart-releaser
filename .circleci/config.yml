@@ -13,7 +13,7 @@ commands:
   build:
     steps:
       - run:
-          command: wget -O /usr/local/bin/yq "https://github.com/mikefarah/yq/releases/download/v4.31.2/yq_linux_amd64"; chmod +x /usr/local/bin/yq; curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3; chmod 700 get_helm.sh; ./get_helm.sh
+          command: wget -O /usr/local/bin/yq "https://github.com/mikefarah/yq/releases/download/v4.31.2/yq_linux_amd64"; chmod +x /usr/local/bin/yq; wget -O . "https://get.helm.sh/helm-v3.10.0-linux-amd64.tar.gz"; tar -zxvf helm-v3.10.0-linux-amd64.tar.gz; mv linux-amd64/helm /usr/local/bin/helm; chmod +x /usr/local/bin/helm 
           name: Install dependencies for the chart publish image
   deploy:
     steps:
