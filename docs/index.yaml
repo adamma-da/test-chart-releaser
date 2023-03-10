@@ -3,6 +3,45 @@ entries:
   crossplane:
   - apiVersion: v1
     appVersion: 1.9.8
+    created: "2023-03-10T17:59:02.679334+01:00"
+    description: Crossplane is an open source Kubernetes add-on that enables platform
+      teams to assemble infrastructure from multiple vendors, and expose higher level
+      self-service APIs for application teams to consume.
+    digest: 0254a09a46a104091bb451b25001c32f699d3318362cf019ef71d12e571f1eb5
+    home: https://crossplane.io
+    icon: https://crossplane.io/images/favicon_192x192.png
+    keywords:
+    - cloud
+    - infrastructure
+    - services
+    - application
+    - database
+    - cache
+    - bucket
+    - infra
+    - app
+    - ops
+    - gcp
+    - azure
+    - aws
+    - alibaba
+    - cloudsql
+    - rds
+    - s3
+    - azuredatabase
+    - asparadb
+    - gke
+    - aks
+    - eks
+    maintainers:
+    - email: info@crossplane.io
+      name: Crossplane Maintainers
+    name: crossplane
+    urls:
+    - https://github.com/adamma-da/test-chart-releaser/releases/download/crossplane-2.0.7/crossplane-2.0.7.tgz
+    version: 2.0.7
+  - apiVersion: v1
+    appVersion: 1.9.8
     created: "2023-03-10T15:45:19.391572+01:00"
     description: Crossplane is an open source Kubernetes add-on that enables platform
       teams to assemble infrastructure from multiple vendors, and expose higher level
@@ -40,43 +79,3 @@ entries:
     urls:
     - https://github.com/adamma-da/test-chart-releaser/releases/download/crossplane-2.0.6/crossplane-2.0.6.tgz
     version: 2.0.6
-  - apiVersion: v1
-    appVersion: 1.9.1
-    created: "2023-03-10T16:02:55.043365+01:00"
-    description: Crossplane is an open source Kubernetes add-on that enables platform
-      teams to assemble infrastructure from multiple vendors, and expose higher level
-      self-service APIs for application teams to consume.
-    digest: 3882614482951562296a520a13739bedc0b5b760d3cc04025e6f9bab9dcf3270
-    home: https://crossplane.io
-    icon: https://crossplane.io/images/favicon_192x192.png
-    keywords:
-    - cloud
-    - infrastructure
-    - services
-    - application
-    - database
-    - cache
-    - bucket
-    - infra
-    - app
-    - ops
-    - gcp
-    - azure
-    - aws
-    - alibaba
-    - cloudsql
-    - rds
-    - s3
-    - azuredatabase
-    - asparadb
-    - gke
-    - aks
-    - eks
-    maintainers:
-    - email: info@crossplane.io
-      name: Crossplane Maintainers
-    name: crossplane
-    urls:
-    - https://github.com/adamma-da/test-chart-releaser/releases/download/crossplane-1.9.1.tgz
-    version: 1.9.1
-generated: "2023-03-10T16:02:55.042622+01:00"

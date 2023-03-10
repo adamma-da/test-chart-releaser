@@ -32,4 +32,4 @@ maintainers:
 - email: info@crossplane.io
   name: Crossplane Maintainers
 name: crossplane
-version: 2.0.6
+version: 2.0.7
