@@ -4,7 +4,7 @@ set -x
 # Set up script variables
 CHARTS_DIR=./charts/
 
-HELMREPO_NAME=test-remote-charts
+HELMREPO_NAME=test-chart-releaser
 GITREPO_NAME=test-chart-releaser
 GITREPO_OWNER=adamma-da
 

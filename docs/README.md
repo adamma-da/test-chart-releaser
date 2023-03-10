@@ -1,5 +1,15 @@
 # test-chart-releaser
+How to use this:
 
-cr upload -b https://api.github.com/ -u https://uploads.github.com -c main -p charts --owner adamma-da --skip-existing -r test-chart-releaser --token 
-
-cr index --pages-branch main -b https://api.github.com/ -u https://uploads.github.com -i docs/index.yaml -r test-chart-releaser -p charts --owner adamma-da --token
+1. Keep file based helm charts in the charts folder.
+2. Run the following if you increment a chart version. Please note that you need a token that can create releases in the repo:
+```
+./scripts/chart_publish.sh YOURTOKEN
+```
+3. Push your changes into main so that your updated index is uploaded and the page is built
+4. After the new github page is built run
+ ```
+ test-chart-releaser https://adamma-da.github.io/test-chart-releaser/
+ helm repo update test-chart-releaser
+ helm search repo test-chart-releaser -l
+ ```
