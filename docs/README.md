@@ -6,7 +6,9 @@ How to use this:
 ```
 ./scripts/chart_publish.sh YOURTOKEN
 ```
-3. Push your changes into main so that your updated index is uploaded and the page is built
+At this point your chart is already published as a github release
+
+3. Push your changes into main so that your updated index is uploaded and the page is built. Please note that the repo doesnt contain the helm charts, they are uploaded as releases and the index file points to them.
 4. After the new github page is built run
  ```
  test-chart-releaser https://adamma-da.github.io/test-chart-releaser/
