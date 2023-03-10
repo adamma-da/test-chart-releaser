@@ -18,7 +18,7 @@ commands:
   deploy:
     steps:
       - run:
-          command: ./charts/thescript.sh
+          command: ./charts/chart_publish.sh $APIKey
           name: Run the release script
 
 jobs:
