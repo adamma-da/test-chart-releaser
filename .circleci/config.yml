@@ -4,18 +4,17 @@ version: 2.1
 executors:
   chart-releaser:
     docker:
-       - image: quay.io/helmpack/chart-releaser:v1.1.0
-      #- image: quay.io/helmpack/chart-releaser:v1.2.0
+       - image: quay.io/helmpack/chart-releaser:v1.2.0
     environment:
       LC_ALL: "C.UTF-8"
     resource_class: medium
 
 commands:
-  # build:
-  #   steps:
-  #     - run:
-  #         command: apk add argocd
-  #         name: Install JavaScript dependencies for Pulumi
+  build:
+    steps:
+      - run:
+          command: apk add yq helm
+          name: Install JavaScript dependencies for Pulumi
   deploy:
     steps:
       - run:
@@ -27,6 +26,7 @@ jobs:
   release-chart:
     executor: chart-releaser
     steps:
+      - build
       - checkout
       - deploy
 
