@@ -8,7 +8,7 @@ HELMREPO_NAME=test-chart-releaser
 GITREPO_NAME=test-chart-releaser
 GITREPO_OWNER=adamma-da
 
-PUBLISH_BRANCH=main
+PUBLISH_BRANCH=publish
 PUBLISH_FOLDER="publish"
 PAGES_BRANCH=main
 
@@ -37,5 +37,5 @@ for chart in $CHARTS_DIR/*; do
 done
 
 mv publish/index.yaml docs/index.yaml
-#cr index --pages-branch $PAGES_BRANCH -b https://api.github.com/ -u https://uploads.github.com -i docs/index.yaml -r $GITREPO_NAME  -p $PUBLISH_FOLDER --owner $GITREPO_OWNER --token $1
+cr index --pages-branch $PAGES_BRANCH --push -b https://api.github.com/ -u https://uploads.github.com -i docs/index.yaml -r $GITREPO_NAME  -p $PUBLISH_FOLDER --owner $GITREPO_OWNER --token $1
 rm -rf $PUBLISH_FOLDER
