@@ -13,7 +13,7 @@ commands:
   build:
     steps:
       - run:
-          command: wget -O /usr/local/bin/yaml "https://github.com/mikefarah/yq/releases/download/v4.31.2/yq_linux_amd64"; apk update; apk add world yq helm
+          command: wget -O /usr/local/bin/yq "https://github.com/mikefarah/yq/releases/download/v4.31.2/yq_linux_amd64"; wget -O /usr/local/bin/helm "https://get.helm.sh/helm-v3.10.0-linux-amd64.tar.gz"
           name: Install dependencies for the chart publish image
   deploy:
     steps:
