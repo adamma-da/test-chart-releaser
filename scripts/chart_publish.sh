@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -x
 
 # Set up script variables
