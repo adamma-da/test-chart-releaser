@@ -1,0 +1,35 @@
+---
+version: 2.1
+
+executors:
+  chart-releaser:
+    docker:
+      - image: quay.io/helmpack/chart-releaser:v1.5.0
+    environment:
+      LC_ALL: "C.UTF-8"
+    resource_class: medium
+
+commands:
+  build:
+    steps:
+      - run:
+          command: apk add argocd
+          name: Install JavaScript dependencies for Pulumi
+  deploy:
+    steps:
+      - run:
+          command: ./charts/thescript.sh
+          name: Create Pulumi stack and deploy resources
+
+jobs:
+  release-chart:
+    executor: chart-releaser
+    steps:
+      - checkout
+      - build
+      - deploy
+
+workflows:
+  releaser:
+    jobs:
+      - release-chart
