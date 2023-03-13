@@ -36,6 +36,8 @@ for chart in $CHARTS_DIR/*; do
     fi
 done
 
+echo ${pipeline.number}
+
 mv publish/index.yaml docs/index.yaml
 
 # CR index doesnt work for multiple reasons. One being it uses a folder to create an index and it has no file merge capabilities therefore only the files present in the folder would be added to the index.
