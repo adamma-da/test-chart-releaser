@@ -1,5 +1,5 @@
 #!/bin/sh
-set -x
+#set -x
 
 # Set up script variables
 CHARTS_DIR=./charts/
@@ -57,6 +57,9 @@ else
     echo "Opening new PR."
     gh pr create --fill
   else
-    echo "PR already exists."
+    echo "PR already exists. Please merge or close the existing PR first"
   fi
 fi
+
+helm repo update $HELMREPO_NAME
+helm search repo $HELMREPO_NAME -l  
