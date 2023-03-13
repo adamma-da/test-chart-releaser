@@ -20,7 +20,7 @@ commands:
   deploy:
     steps:
       - run:
-          command: ./scripts/chart_publish.sh $APIKey
+          command: ./scripts/chart_publish.sh $APIKey $GITHUB_ACTOR
           name: Run the release script
 
 jobs:
