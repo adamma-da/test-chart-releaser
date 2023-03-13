@@ -16,7 +16,7 @@ PAGES_BRANCH=main
 mkdir $PUBLISH_FOLDER
 helm repo add $HELMREPO_NAME https://$GITREPO_OWNER.github.io/$GITREPO_NAME/
 
-git config user.email "$GITHUB_ACTOR@da.com"
+git config user.email "$GITHUB_ACTOR@dummy.com"
 git config user.name "$GITHUB_ACTOR"
 
 
