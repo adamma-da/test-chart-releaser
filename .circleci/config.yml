@@ -33,7 +33,7 @@ jobs:
     executor: chart-releaser
     steps:
       - build
-      - checkout-https
+      - checkout
       - deploy
 
 workflows:
