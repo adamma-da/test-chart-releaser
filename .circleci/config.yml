@@ -20,7 +20,7 @@ commands:
   checkout-https:
     steps:
       - run:
-          command: git clone https://github.com/adamma-da/test-chart-releaser.git
+          command: git clone https://github.com/adamma-da/test-chart-releaser.git; cd test-chart-releaser
           name: Check out the code using HTTPS because chart releaser doesnt work with ssh
   deploy:
     steps:
