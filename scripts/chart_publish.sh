@@ -51,8 +51,8 @@ else
   git add .
   git checkout -b "$PUBLISH_BRANCH-index-update" --track
   git commit -m "Updated index.yaml file so that it contains the newly pushed helm charts"
-  git push -f origin "$PUBLISH_BRANCH"
-  current_pr_closed=$(gh jq --run "gh pr status --json closed -q '.currentBranch.closed'")
+  git push -f origin "$PUBLISH_BRANCH-index-update"
+  current_pr_closed=$(gh pr status --json closed -q '.currentBranch.closed')
   if [[ -z $current_pr_closed ]] || [[ $current_pr_closed == "true" ]] ; then
     echo "Opening new PR."
     gh pr create --fill
