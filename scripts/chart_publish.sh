@@ -48,7 +48,7 @@ if [[ -z $(git status -s) ]]; then
 else
   echo "Pushing changes"
   git add .
-  git checkout -b "$PUBLISH_BRANCH" --track
+  git checkout -b "$PUBLISH_BRANCH-${pipeline.number}" --track
   git commit -m "Updated index.yaml file so that it contains the newly pushed helm charts"
   git push -f origin "$PUBLISH_BRANCH"
   current_pr_closed=$(gh jq --run "gh pr status --json closed -q '.currentBranch.closed'")
