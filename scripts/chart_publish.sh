@@ -1,4 +1,4 @@
-#!/bin/sh -eo pipefail
+#!/bin/sh
 #set -x
 
 # Set up script variables
