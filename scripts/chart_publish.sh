@@ -16,8 +16,8 @@ PAGES_BRANCH=main
 mkdir $PUBLISH_FOLDER
 helm repo add $HELMREPO_NAME https://$GITREPO_OWNER.github.io/$GITREPO_NAME/
 
-git config --global user.email "$GITHUB_ACTOR@digitalasset.com"
-git config --global user.name "$GITHUB_ACTOR"
+git config user.email "$GITHUB_ACTOR@da.com"
+git config user.name "$GITHUB_ACTOR"
 
 
 # Loop through the helm charts in the designated folder
@@ -32,8 +32,7 @@ for chart in $CHARTS_DIR/*; do
     else
         # Handling the version incremented chart
         helm package $chart -d $PUBLISH_FOLDER
-        cr upload -b https://api.github.com/ -u https://uploads.github.com -c $PUBLISH_BRANCH -r $GITREPO_NAME  -p $PUBLISH_FOLDER --owner $GITREPO_OWNER --token $1
-        #disabled option --skip-existing 
+        cr upload -b https://api.github.com/ -u https://uploads.github.com --skip-existing -c $PUBLISH_BRANCH -r $GITREPO_NAME  -p $PUBLISH_FOLDER --owner $GITREPO_OWNER --token $1
         echo "Chart $chart_name version $chart_version has been pushed to repository $HELMREPO_NAME"
         #helm repo index publish --url https://github.com/adamma-da/test-chart-releaser/releases/download/$chart_name-$chart_version/  --merge docs/index.yaml
 
