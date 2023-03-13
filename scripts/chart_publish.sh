@@ -29,7 +29,8 @@ for chart in $CHARTS_DIR/*; do
     else
         # Handling the version incremented chart
         helm package $chart -d $PUBLISH_FOLDER
-        cr upload -b https://api.github.com/ -u https://uploads.github.com -c $PUBLISH_BRANCH -r $GITREPO_NAME  -p $PUBLISH_FOLDER --owner $GITREPO_OWNER --skip-existing --token $1
+        cr upload -b https://api.github.com/ -u https://uploads.github.com -c $PUBLISH_BRANCH -r $GITREPO_NAME  -p $PUBLISH_FOLDER --owner $GITREPO_OWNER --token $1
+        #disabled option --skip-existing 
         echo "Chart $chart_name version $chart_version has been pushed to repository $HELMREPO_NAME"
         #helm repo index publish --url https://github.com/adamma-da/test-chart-releaser/releases/download/$chart_name-$chart_version/  --merge docs/index.yaml
 

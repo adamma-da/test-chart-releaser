@@ -13,13 +13,13 @@ commands:
   build:
     steps:
       - run:
+          #This way of pulling dependencies is quite bad but apt doesnt work on this image therefore we had to come up with a workaround.
           command: wget -O /usr/local/bin/yq "https://github.com/mikefarah/yq/releases/download/v4.31.2/yq_linux_amd64"; chmod +x /usr/local/bin/yq; wget -O helm-v3.10.0-linux-amd64.tar.gz "https://get.helm.sh/helm-v3.10.0-linux-amd64.tar.gz"; tar -zxvf helm-v3.10.0-linux-amd64.tar.gz; mv linux-amd64/helm /usr/local/bin/helm; rm -rf linux-amd64; rm helm-v3.10.0-linux-amd64.tar.gz; chmod +x /usr/local/bin/helm 
           name: Install dependencies for the chart publish image
   deploy:
     steps:
       - run:
-          command: ./scripts/chart_publish.sh 
-          #$APIKey
+          command: ./scripts/chart_publish.sh $APIKey
           name: Run the release script
 
 jobs:
