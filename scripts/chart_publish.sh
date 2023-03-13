@@ -36,7 +36,6 @@ for chart in $CHARTS_DIR/*; do
     fi
 done
 
-echo ${pipeline.number}
 
 mv publish/index.yaml docs/index.yaml
 
