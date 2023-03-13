@@ -16,8 +16,8 @@ PAGES_BRANCH=main
 mkdir $PUBLISH_FOLDER
 helm repo add $HELMREPO_NAME https://$GITREPO_OWNER.github.io/$GITREPO_NAME/
 
-git config user.email "$2@digitalasset.com"
-git config user.name "$2"
+git config user.email "machine@digitalasset.com"
+git config user.name "machine-da"
 
 
 # Loop through the helm charts in the designated folder
@@ -42,7 +42,6 @@ done
 #mv publish/index.yaml docs/index.yaml
 # this doesnt work due to a bug in CR.
 #
-echo "Creating pull request as user $2"
 cr index --pr --pages-branch $PAGES_BRANCH -b https://api.github.com/ -u https://uploads.github.com -i docs/index.yaml -r $GITREPO_NAME  -p $PUBLISH_FOLDER --owner $GITREPO_OWNER --token $1
 #
 rm -rf $PUBLISH_FOLDER
