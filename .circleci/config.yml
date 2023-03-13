@@ -13,7 +13,7 @@ commands:
   build:
     steps:
       - run:
-          command: apk add helm yq github-cli git
+          command: apk add helm yq github-cli git jq
           name: Install dependencies for the chart publish image
   deploy:
     steps:
