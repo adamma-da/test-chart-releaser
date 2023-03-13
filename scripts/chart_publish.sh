@@ -16,6 +16,9 @@ PAGES_BRANCH=main
 mkdir $PUBLISH_FOLDER
 helm repo add $HELMREPO_NAME https://$GITREPO_OWNER.github.io/$GITREPO_NAME/
 
+git config --global user.email "$GITHUB_ACTOR@digitalasset.com"
+git config --global user.name "$GITHUB_ACTOR"
+
 
 # Loop through the helm charts in the designated folder
 for chart in $CHARTS_DIR/*; do
@@ -24,7 +27,7 @@ for chart in $CHARTS_DIR/*; do
     chart_version=$(yq eval '.version' $chart/Chart.yaml)
 
     # Check if the chart version has already been pushed to the repo
-    if helm search repo $HELMREPO_NAME/$chart_name -o yaml  -l | grep --silent -w "version: $chart_version"; then
+    if helm search repo $HELMREPO_NAME/$chart_name -o yaml  -l | grep -w "version: $chart_version"; then
         echo "Chart $chart_name version $chart_version already exists in repository $HELMREPO_NAME"
     else
         # Handling the version incremented chart
